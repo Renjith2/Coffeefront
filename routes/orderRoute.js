@@ -4,7 +4,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 router.post('/api/orders', authMiddleware, async (req, res) => {
   try {
-    const { customerName, productsOrdered, quantity, totalPrice, orderDate,orderStatus } = req.body;
+    const { customerName, productsOrdered, quantity, totalPrice, orderDate,orderStatus,vendorName } = req.body;
 
     const newOrder = new Order({
       customerName,
@@ -12,7 +12,8 @@ router.post('/api/orders', authMiddleware, async (req, res) => {
       quantity,
       totalPrice,
       orderDate,
-      orderStatus
+      orderStatus,
+      vendorName
     });
 
     const savedOrder = await newOrder.save();

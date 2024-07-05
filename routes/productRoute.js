@@ -8,7 +8,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 router.post('/api/products', authMiddleware, async (req, res) => {
   try {
-    const { name, description, price, category, availability } = req.body;
+    const { name, description, price, category, availability,vendorname } = req.body;
 
     const existingProduct = await Products.findOne({ name });
 
@@ -24,7 +24,7 @@ router.post('/api/products', authMiddleware, async (req, res) => {
       description,
       price,
       category,
-      availability
+      availability,vendorname
     });
 
     const savedProduct = await newProduct.save();
