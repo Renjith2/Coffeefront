@@ -56,11 +56,11 @@ router.post('/login', async (req,res)=>{
         res.send({
             success:true,
             message:"User Logged in!!!",
-            data:token
+            data:token,
         })
         
     } catch (error) {
-        
+        console.log(error)
     }
    
 })
