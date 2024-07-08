@@ -13,6 +13,11 @@ app.use('/api/user',userRoute)
 app.use('/',productRoute)
 app.use('/',orderRoute);
 
+const corsOptions = {
+  origin: 'https://quiet-dusk-299fb7.netlify.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 
 app.listen(7766,()=>{
     console.log("Server is Running!!!!!!@@@")
